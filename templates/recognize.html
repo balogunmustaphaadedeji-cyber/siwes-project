@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Face Recognition – Smart Office Attendance{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0"><i class="bi bi-camera-video me-2"></i>Live Face Recognition</h4>
+                <span id="statusBadge" class="badge bg-secondary">Camera Off</span>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="video-wrapper position-relative bg-dark rounded overflow-hidden">
+                            <video id="video" autoplay playsinline muted class="w-100"></video>
+                            <canvas id="overlay" class="position-absolute top-0 start-0 w-100 h-100"></canvas>
+                            <div id="camPlaceholder" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white-50">
+                                <div class="text-center">
+                                    <i class="bi bi-camera-video fs-1 d-block mb-2"></i>
+                                    Click “Start Recognition”
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-grid gap-2 mb-4">
+                            <button id="btnStart" class="btn btn-success btn-lg">
+                                <i class="bi bi-play-fill me-1"></i> Start Recognition
+                            </button>
+                            <button id="btnStop" class="btn btn-outline-danger" disabled>
+                                <i class="bi bi-stop-fill me-1"></i> Stop
+                            </button>
+                        </div>
+
+                        <div class="card bg-light border-0">
+                            <div class="card-body">
+                                <h6 class="text-muted mb-3">Last Result</h6>
+                                <div id="resultBox">
+                                    <div class="text-center text-muted py-3">
+                                        <i class="bi bi-person-bounding-box fs-1 d-block mb-2"></i>
+                                        Waiting for face…
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning small mt-3 mb-0">
+                            <i class="bi bi-exclamation-triangle me-1"></i>
+                            Works best with some light. In very dark rooms the system will try to enhance the image, but pure darkness cannot be detected by a normal webcam.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/recognize.js') }}"></script>
+{% endblock %}

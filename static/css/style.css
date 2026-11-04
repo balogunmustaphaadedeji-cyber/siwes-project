@@ -1,0 +1,52 @@
+body {
+    background-color: #f5f7fb;
+    min-height: 100vh;
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card {
+    transition: transform 0.15s ease;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.video-wrapper {
+    aspect-ratio: 4/3;
+    max-height: 420px;
+}
+
+.video-wrapper video {
+    object-fit: cover;
+    height: 100%;
+}
+
+.person-card {
+    transition: box-shadow 0.2s ease;
+}
+.person-card:hover {
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,.08) !important;
+}
+
+#resultBox .recognized {
+    color: #198754;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+#resultBox .unknown {
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.navbar-brand {
+    letter-spacing: -0.3px;
+}
